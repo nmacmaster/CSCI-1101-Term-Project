@@ -1,0 +1,8 @@
+package classes;
+
+public class Property {
+
+	private boolean mortgaged = false;
+	private int numHouses = 0;
+	
+}
