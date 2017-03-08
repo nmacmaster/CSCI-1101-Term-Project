@@ -1,0 +1,76 @@
+package classes;
+
+public class Main {
+
+	public static void main(String[] args){
+		
+		// ** Set number of players, player colors / icons, names, etc.
+		// ** Randomize turn order
+		
+		Player p1 = new Player();
+		Player p2 = new Player();
+		Player p3 = new Player();
+		Player p4 = new Player();
+		Player activePlayer = new Player();
+		Player[] players = new Player[]{p1, p2, p3, p4};
+		Bank bank = new Bank();
+		int turn = 1;
+		
+		Board gameBoard = new Board();
+		
+		// ** Call game loop
+		boolean gameOver = false;
+		
+		while (gameOver == false){
+			
+			// Detects whose turn it is
+			for (int i=0; i<4; i++)
+				if (players[i].getOrderNum() == turn)
+					activePlayer = players[i];
+			
+			// ** Player whose turn it is (activePlayer) rolls dice
+			activePlayer.move((int)(1 + (Math.random()* 6)), (int)(1 + (Math.random()* 6)));
+			// ** Event occurs (player has moved, money has been changed, properties added, etc)
+			gameBoard.event(activePlayer);			
+			
+			// --------------------------------------------------------------------------
+			
+			// ** After event resolves all players now have an opportunity to
+			// 1. Offer a trade
+			// 2. Mortgage / demortgage property
+			// 3. Sell houses / hotels to raise money
+			boolean tradesFinished = false;
+			while (tradesFinished == false){
+				
+				// ** TRADE **
+				// 1. Who would like to offer a trade?
+				//    Shows full list of remaining players, records selection in temp variable
+				Player trader = p1;
+				// 2. Who would you like to trade with?
+				//    Shows full list of other remaining players, records selection in temp variable
+				Player tradee = p2;
+				trader.requestTrade(tradee);
+				
+				// ** Mortgage / demortgage **
+				// 1. Who would like to mortgage / demortgage?
+				//    Shows full list of remaining players
+				p1.mortgage(bank);
+				
+				// ** Sell Houses **
+				// 1. Who would like to mortgage / demortgage?
+				//    Shows full list of remaining players
+				p1.sellHouses(bank);
+				
+			}
+			
+			// --------------------------------------------------------------------------
+			
+			// Goes to the next person's turn if doubles weren't rolled
+			if (!activePlayer.goAgain())
+				turn++;
+			
+		}
+		
+	}
+	
+}
