@@ -1,0 +1,53 @@
+package classes;
+
+import java.util.ArrayList;
+
+public class Player {
+	
+	private int orderNum;
+	private boolean goAgain;
+	private ArrayList<Property> ownedProperties = new ArrayList<Property>();
+	private int money = 1500;
+	
+	public int getOrderNum(){ return orderNum; };
+	public boolean goAgain(){ return goAgain; };
+	
+	public void move(int d1, int d2){
+		
+	}
+	
+	public void requestTrade(Player p){
+		
+		// Have player select what they would like to trade (money, properties, get out of jail cards)
+		
+		// Have player select what they would like to trade for (bring up p's assets)
+		
+		// Bring up confirm / reject screen for p to choose
+		
+		// If yes, remove asset from p and add to this, remove asset from this and add to p
+		
+	}
+	
+	public void mortgage(Bank b){
+		
+		// Show full list of owned properties, have user select which one to mortgage / demortgage
+		
+		// Confirm the price to mortgage / demortgage, have user confirm
+		
+		// Convert property to mortgaged / demortgaged, add / remove money from player's total
+		
+	}
+	
+	public void sellHouses(Bank b){
+		
+		// Show full list of owned properties w/ houses / hotels, have user select which one
+		
+		// Choose number of houses to sell if more than one
+		
+		// Confirm money to be received for selling, have user confirm
+		
+		// Remove houses from property, add money to player's total
+		
+	}
+	
+}
