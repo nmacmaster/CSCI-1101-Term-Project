@@ -13,7 +13,7 @@ public class Main {
 		Player p4 = new Player();
 		Player activePlayer = new Player();
 		Player[] players = new Player[]{p1, p2, p3, p4};
-		Bank bank = new Bank();
+		Player bank = new Player();
 		int turn = 1;
 		
 		Board gameBoard = new Board();
