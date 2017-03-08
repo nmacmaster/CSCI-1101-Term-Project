@@ -28,7 +28,7 @@ public class Player {
 		
 	}
 	
-	public void mortgage(Bank b){
+	public void mortgage(Player b){
 		
 		// Show full list of owned properties, have user select which one to mortgage / demortgage
 		
@@ -38,7 +38,7 @@ public class Player {
 		
 	}
 	
-	public void sellHouses(Bank b){
+	public void sellHouses(Player b){
 		
 		// Show full list of owned properties w/ houses / hotels, have user select which one
 		
