@@ -15,6 +15,7 @@ public class Property{
       mortgage = false;
    }
    
+   //Get and Set for Owner, name and mortgage
    public void setPosition(int p){boardposition = p;}
    public void setOwner(Player o){owner = o;}
    public void setMortgage(boolean b){mortgage = b;}
