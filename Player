@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 	
@@ -8,23 +9,85 @@ public class Player {
 	private boolean goAgain;
 	private ArrayList<Property> ownedProperties = new ArrayList<Property>();
 	private int money = 1500;
+	private String name;
+	private int numCards = 0;
 	
 	public int getOrderNum(){ return orderNum; };
 	public boolean goAgain(){ return goAgain; };
+	
+	public Player(){
+	}
+	
+	public Player(String n){
+		name = n;
+	}
+	
+	public Player(String n, int m){
+		name = n;
+		money = m;
+	}
+	
+	
+	public String getName(){ return name; }
+	
 	
 	public void move(int d1, int d2){
 		
 	}
 	
-	public void requestTrade(Player p){
+	public void trade(Player p){
 		
-		// Have player select what they would like to trade (money, properties, get out of jail cards)
+	}
+	
+	public void inventoryRemove(Property p){
+		boolean removed = false;
+		for(int i=0; i<ownedProperties.size();i++)
+			if(ownedProperties.get(i).getName().equals(p.getName())){
+				ownedProperties.remove(i);
+				removed = true;
+			}
+			
+		if (!removed)
+			System.out.println("\n\tError - this player does not own this property");
+			
+	}
+	
+	public void inventoryRemove(int m){
 		
-		// Have player select what they would like to trade for (bring up p's assets)
+		if (m>money)
+			System.out.println("\n\tError - this player does not have enough money");
+		else
+			money -= m;
 		
-		// Bring up confirm / reject screen for p to choose
+	}
+	
+	public void inventoryRemove(String card){
 		
-		// If yes, remove asset from p and add to this, remove asset from this and add to p
+		if (card.equals("GetOutOfJail"))
+			numCards -= 1;
+		
+		else
+			System.out.println("\n\tError - incorrect input. Only Get Out of Jail Free cards can be held by players");
+		
+	}
+	
+	public void inventoryAdd(Property p){
+		
+		boolean owned = false;
+		for(int i=0; i<ownedProperties.size();i++)
+			if(ownedProperties.get(i).getName().equals(p.getName()))
+				owned = true;
+			
+		if (owned)
+			System.out.println("\n\tError - this player");
+		
+	}
+	
+	public void inventoryAdd(int m){
+		
+	}
+	
+	public void inventoryAdd(String card){
 		
 	}
 	
