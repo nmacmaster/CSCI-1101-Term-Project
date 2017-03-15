@@ -1,8 +1,25 @@
 package classes;
 
-public class Property {
-
-	private boolean mortgaged = false;
-	private int numHouses = 0;
-	
+public class Property{
+   
+   private Player owner;//starts as bank 
+   private int boardposition;//index from 0 to 39
+   private String name;
+   private boolean mortgage;
+   
+   
+   public Property(int p, String n){
+      owner = null;
+      boardposition = p;
+      name = n;
+      mortgage = false;
+   }
+   
+   public void setPosition(int p){boardposition = p;}
+   public void setOwner(Player o){owner = o;}
+   public void setMortgage(boolean b){mortgage = b;}
+   public int getPosition(){return boardposition;}
+   public Player getOwner(){return owner;}
+   public boolean getMortgage(){return mortgage;}
+   
 }
