@@ -3,8 +3,8 @@ public class Building extends Property{
    private int[] rent;
    private int houselevel;
    
-   public Building(int p, String n){
-      super(p, n);
+   public Building(int p, int pr, String n){
+      super(p, pr, n);
       houselevel = 0;
       rent = new int[6];
    }
@@ -20,6 +20,7 @@ public class Building extends Property{
    }
    public int getHouseLevel(){return houselevel;}
    
+   //get rent checks if owner has all of set before returning value of rent
    public int getRent(){
       if(houselevel > 0)
          return rent[houselevel];
@@ -29,5 +30,5 @@ public class Building extends Property{
          return rent[0];
    }
 }
-   
+  
    
